@@ -36,18 +36,11 @@
 
 function chunk(array, size) {
     let chunked = [];
-    let start = 0;
-    let end = size;
+    let i = 0;
 
-    while (start < array.length) {
-        if (size === 1) {
-            chunked.push([array[start]]);
-            start++;
-        } else {
-            chunked.push(array.slice(start, end));
-            start += size;
-            end += size;
-        }
+    while (i < array.length) {
+        chunked.push(array.slice(i, i + size));
+        i += size;
     }
 
     console.log(chunked);
