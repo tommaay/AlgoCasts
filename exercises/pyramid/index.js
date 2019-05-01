@@ -23,13 +23,8 @@ function pyramid(n) {
     // number of rows = n
     // number of columns = n + 2
     // number of spaces between = n - row
+    // add number of spaces, then # up to row length - number of spaces, then fill the rest with spaces
     // rows go from 1 up to and including n
-
-    // if (row === 0) {
-    //     number of '#' per row = 1
-    // } else {
-    //     number of '#' per row = row * 2 - 1
-    // }
 
     const rowLength = n * 2 - 1;
 
@@ -38,12 +33,10 @@ function pyramid(n) {
         const numSpaces = n - row;
 
         for (let col = 0; col < rowLength; col++) {
-            if (col < numSpaces) {
+            if (col < numSpaces || col >= rowLength - numSpaces) {
                 temp += ' ';
-            } else if (col >= numSpaces && col < rowLength - numSpaces) {
-                temp += '#';
             } else {
-                temp += ' ';
+                temp += '#';
             }
         }
 
